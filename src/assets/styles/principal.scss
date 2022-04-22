@@ -1,0 +1,18 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$sifact-primary: mat.define-palette(mat.$blue-gray-palette, 700);
+$sifact-accent: mat.define-palette(mat.$orange-palette, A200, A100, A400);
+$sifact-warn: mat.define-palette(mat.$red-palette);
+
+$sifact-theme: mat.define-light-theme((
+ color: (
+   primary: $sifact-primary,
+   accent: $sifact-accent,
+   warn: $sifact-warn,
+ )
+));
+
+@include mat.core-theme($sifact-theme);
+@include mat.all-component-themes($sifact-theme);
