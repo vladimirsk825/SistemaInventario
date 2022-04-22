@@ -1,0 +1,157 @@
+<mat-stepper linear #stepper>
+    <mat-step errorMessage="Datos incompletos!"  [stepControl]="gpInfGen" [editable]="isEditable">
+      <form [formGroup]="gpInfGen" >        
+        <ng-template matStepLabel>Informaci&oacute;n General</ng-template>
+        <mat-form-field hintLabel="Max 80 car&aacute;cteres" style="width:100%" appearance="fill">
+          <mat-label>Nombre Empresa</mat-label>
+          <input matInput formControlName="nombre" maxlength="80" placeholder="Ej. Empresa XYZ" required>
+        </mat-form-field>
+
+        <div class="contenedor-dialogo">        
+          <mat-form-field hintLabel="Max 15 car&aacute;cteres"  style="width:49%" appearance="fill">
+            <mat-label>R.U.C.</mat-label>
+            <input matInput formControlName="ruc" maxlength="15" placeholder="Ej. 01234567890001" required>
+          </mat-form-field>
+          <mat-form-field style="width:49%" appearance="fill">
+            <mat-label>Tipo de Contribuyente</mat-label>
+            <mat-select formControlName="tipoContribuyente" required>
+              <mat-option [value]="tc.ca_codigo" *ngFor="let tc of catalogoTC">{{tc.ca_valor}}</mat-option>
+            </mat-select>
+            <mat-hint align="end">Selecci&oacute;n despegable ^</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="contenedor-dialogo">
+          <mat-form-field style="width:49%" appearance="fill">
+            <mat-label>Tipo de Industria</mat-label>
+            <mat-select formControlName="tipoIndustria">
+              <mat-option [value]="ti.ca_codigo" *ngFor="let ti of catalogoTI" >{{ti.ca_valor}}</mat-option>
+            </mat-select>
+            <mat-hint align="end">Selecci&oacute;n despegable ^</mat-hint>
+          </mat-form-field>
+          <mat-form-field style="width:49%" appearance="fill">
+            <mat-label>Tipo de Empresa</mat-label>
+            <mat-select formControlName="tipoEmpresa">
+              <mat-option [value]="te.ca_codigo" *ngFor="let te of catalogoTE">{{te.ca_valor}}</mat-option>
+            </mat-select>
+            <mat-hint align="end">Selecci&oacute;n despegable ^</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="contenedor-dialogo">
+          <mat-form-field hintLabel="Max 5 car&aacute;cteres n&uacute;meros" style="width:49%" appearance="fill">
+            <mat-label>Codigo Empresa</mat-label>
+            <input matInput formControlName="codigo" placeholder="Ej. 00001" required>
+          </mat-form-field>
+          <mat-form-field style="width:49%" appearance="fill">
+            <mat-label>C&oacute;digo de Moneda</mat-label>
+            <mat-select formControlName="moneda" required>
+              <mat-option [value]="mn.ca_codigo" *ngFor="let mn of catalogoMN">{{mn.ca_valor}}</mat-option>
+            </mat-select>
+            <mat-hint align="end">Selecci&oacute;n despegable ^</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="boton-fila"  align="end">
+          <button mat-raised-button color="accent" matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step errorMessage="Datos incompletos!" [stepControl]="gpInfCon" [editable]="isEditable">
+      <form [formGroup]="gpInfCon">
+        <ng-template matStepLabel>Informaci&oacute;n de Contacto</ng-template>
+        <mat-form-field hintLabel="Max 80 car&aacute;cteres" style="width:100%" appearance="fill">
+          <mat-label>Raz&oacute;n Social</mat-label>
+          <input matInput formControlName="razonSocial" maxlength="80" placeholder="Ej. Compa&ntilde;&iacute;a XYZ" required>
+        </mat-form-field>
+        <mat-form-field hintLabel="Max 254 car&aacute;cteres" style="width:100%" appearance="fill">
+          <mat-label>Direcci&oacute;n</mat-label>
+          <input matInput formControlName="direccion" placeholder="Ej. Av abc, Psj 123, UIO" required>
+        </mat-form-field>
+
+        <div class="contenedor-dialogo">
+          <mat-form-field style="width:32%" appearance="fill">
+            <mat-label>Pa&iacute;s</mat-label>
+            <mat-select>
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+            <mat-hint align="end">Selecci&oacute;n despegable ^</mat-hint>
+          </mat-form-field>
+          <mat-form-field style="width:32%" appearance="fill">
+            <mat-label>Provincia</mat-label>
+            <mat-select>
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+            <mat-hint align="end">Selecci&oacute;n despegable ^</mat-hint>
+          </mat-form-field>
+          <mat-form-field style="width:32%" appearance="fill">
+            <mat-label>Ciudad</mat-label>
+            <mat-select>
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+            <mat-hint align="end">Selecci&oacute;n despegable ^</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="contenedor-dialogo">
+          <mat-form-field hintLabel="Max 15 car&aacute;cteres n&uacute;meros" style="width:32%" appearance="fill">
+            <mat-label>Tel&eacute;fono</mat-label>
+            <input matInput [(ngModel)]="empresa.em_telefono" [ngModelOptions]="{standalone: true}" maxlength="15" placeholder="Ej. 123456">
+          </mat-form-field>
+          <mat-form-field hintLabel="Max 80 car&aacute;cteres" style="width:32%" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="empresa.em_correo" [ngModelOptions]="{standalone: true}" maxlength="80" placeholder="Ej. micorreo@domio.com">
+          </mat-form-field>
+          <mat-form-field hintLabel="Max 80 car&aacute;cteres" style="width:32%" appearance="fill">
+            <mat-label>Web</mat-label>
+            <input matInput [(ngModel)]="empresa.em_dir_web" [ngModelOptions]="{standalone: true}" maxlength="80" placeholder="Ej. www.misitio.com">
+          </mat-form-field>
+        </div>
+        <div class="boton-fila" align="end">
+          <button mat-raised-button color="accent" matStepperPrevious>Atr&aacute;s</button>
+          <button mat-raised-button color="accent" matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step state="done" errorMessage="Datos incompletos!" [stepControl]="gpInfAdi" [editable]="isEditable">
+      <form [formGroup]="gpInfAdi">
+        <ng-template matStepLabel>Informaci&oacute;n Adicional</ng-template>
+        <mat-form-field hintLabel="Max 80 car&aacute;cteres" style="width:100%" appearance="fill">
+          <mat-label>Representante Legal</mat-label>
+          <input matInput [(ngModel)]="empresa.em_representante" [ngModelOptions]="{standalone: true}" maxlength="80" placeholder="Ej. Juan Perez">
+        </mat-form-field>
+
+        <div class="contenedor-dialogo">
+          <mat-form-field hintLabel="Max 50 car&aacute;cteres" style="width:49%" appearance="fill">
+            <mat-label>C&oacute;digo ZIP</mat-label>
+            <input matInput [(ngModel)]="empresa.em_codigo_zip" [ngModelOptions]="{standalone: true}" maxlength="80" placeholder="Ej. 171112">
+          </mat-form-field>
+          <mat-form-field style="width:49%" appearance="fill">
+            <mat-label>Fecha de Constituci&oacute;n</mat-label>
+            <input matInput formControlName="fechaConstitucion" maxlength="10" minlength="10" [matDatepicker]="picker"
+                placeholder="Ej. 01/01/1900">
+            <mat-datepicker-toggle class="datePicker-border" matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-checkbox [(ngModel)]="empresa.em_genera_contabilidad" hintLabel="Max 50 car&aacute;cteres"  appearance="fill">Obligado a llevar contabilidad</mat-checkbox>
+        </div>
+        <div class="contenedor-dialogo">
+          <mat-form-field style="width:49%" appearance="fill">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="estadoEmpresa">
+              <mat-option [value]="ee.ca_codigo" *ngFor="let ee of catalogoEG">{{ee.ca_valor}}</mat-option>
+            </mat-select>
+            <mat-hint align="end">Selecci&oacute;n despegable ^</mat-hint>
+          </mat-form-field>
+        </div>
+      </form>
+      <div class="boton-fila" align="end">
+        <button mat-raised-button color="accent" (click)="onNoClick()">Cancelar</button>
+        <button mat-raised-button color="accent" (click)="setValues()" [mat-dialog-close]="empresa" cdkFocusInitial>Crear</button>
+      </div>
+    </mat-step>
+  </mat-stepper>

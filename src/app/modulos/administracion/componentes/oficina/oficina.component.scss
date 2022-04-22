@@ -1,0 +1,95 @@
+@import "variables";
+
+  table {
+    width: 100%;
+    margin:1rem auto;
+  }
+
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    margin:1rem auto;
+    max-width: auto;
+    padding: 1rem;
+  }
+
+  .mat-header-cell {
+    font-size: $font-size-tabla-header;
+    color: $color-primario;
+  }
+  
+  .mat-cell {
+    font-size: $font-size-tabla-row;
+  }
+
+  .mat-icon {
+    cursor: pointer;
+    }
+  
+  .highlight-on-hover:hover {
+    background-color: $color-tabla-row-selected;
+  }
+
+  td[class*=' mat-column']{
+    width: 10vw;
+    min-width: 10vw;
+    max-width: 10vw;
+  }
+
+  .value-cell {
+    display: flex;
+    align-items: center;
+  }
+
+  .vertical-separator {
+    border-left: 1px solid #f0f0f5;
+  }
+
+  td div {
+    word-break: break-all;
+  }
+
+  .mat-cell, .mat-header-cell {
+    padding: 10px;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell {
+      text-align: center;
+      padding: 3px !important;
+  }
+
+  .accion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__button {
+      border: none;
+      background-color: transparent;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        background-color: $color-secundario;
+        border-radius: 20%;
+      }
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+    &__iconAdd {
+      height: 1rem;
+      width: 1rem;
+      fill: $color-add;
+    }
+    &__iconUpdate {
+      height: 1rem;
+      width: 1rem;
+      fill: $color-add;
+    }
+    &__iconDelete {
+      height: 1rem;
+      width: 1rem;
+      fill: $color-delete;
+    }
+  }

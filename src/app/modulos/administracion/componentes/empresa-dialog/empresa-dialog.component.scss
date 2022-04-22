@@ -1,0 +1,25 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+
+.mat-form-field {
+    margin-top: 16px;
+}
+
+.mat-checkbox {
+    margin-top: 16px;
+}
+
+.contenedor-dialogo .mat-form-field + .mat-form-field{
+  margin-left: 2%;
+}
+  
+.contenedor-dialogo-2 .mat-form-field + .mat-form-field + .mat-checkbox{
+  margin-left: 2%;
+}
+
+.boton-fila .mat-button-base {
+  margin: 8px 8px 0;
+  width: 120px;
+  text-align: center;
+}

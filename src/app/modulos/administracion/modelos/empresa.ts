@@ -1,0 +1,31 @@
+export class EEmpresa {
+    constructor(
+        public em_id: number,
+        public em_codigo_empresa: string,
+        public em_moneda: string,
+        public em_tipo_contribuyente: string,
+        public em_razon_social: string,
+        public em_fecha_constitucion: string,
+        public em_descripcion: string,
+        public em_direccion: string,
+        public em_ruc: string,
+        public em_genera_contabilidad: boolean,
+        public em_tipo_industria: string,
+        public em_tipo_empresa: string,
+        public em_representante: string,
+        public em_logo: string,
+        public em_telefono: string,
+        public em_fax: string,
+        public em_correo: string,
+        public em_dir_web: string,
+        public em_pais: string,
+        public em_provincia: string,
+        public em_ciudad: string,
+        public em_codigo_zip: string,
+        public em_usuario_ing: string,
+        public em_fecha_ing: string,
+        public em_usuario_act: string,
+        public em_fecha_act: string,
+        public em_estado: string
+    ){}
+}

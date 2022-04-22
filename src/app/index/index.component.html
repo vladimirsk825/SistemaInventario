@@ -1,0 +1,42 @@
+<div class="cabecera-container">
+    <mat-toolbar color="primary">
+        <div class="left">
+            <button *ngIf= "isLoggedIn" class = "button" mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+                <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+            </button>
+        </div>
+        <div class="left">
+            <mat-panel-title *ngIf ="isLoggedIn">
+                <mat-icon>{{avatar}}</mat-icon>
+            </mat-panel-title>
+        </div>
+        <div class="left user-name-style">
+            <h1 justify-content: flex-end >{{userName}}</h1>
+        </div>
+        <div class="center">
+            <h1 justify-content: flex-end >{{nombreEmpresa}}</h1>
+        </div>
+        <div class="right flexContainer">
+            <a routerLink="/">
+                <mat-icon>home</mat-icon>Inicio
+            </a>
+        </div>&nbsp;&nbsp;
+        <div class="right flexContainer">
+            <a *ngIf ="!isLoggedIn" routerLink="/">
+                <mat-icon>login</mat-icon>Iniciar Sesi&oacute;n
+            </a>
+            <a *ngIf ="isLoggedIn" routerLink="/">
+                <mat-icon>logout</mat-icon>Cerrar Sesi&oacute;n
+            </a>
+        </div>
+    </mat-toolbar>  
+    <mat-sidenav-container class="cabecera-sidenav-container">
+        <mat-sidenav #sidenav style="width: 250px" mode="side">
+            <app-menu></app-menu>
+        </mat-sidenav>        
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>             
+        </mat-sidenav-content>
+    </mat-sidenav-container>  
+</div>
