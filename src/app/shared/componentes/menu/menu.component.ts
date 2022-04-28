@@ -80,6 +80,26 @@ export class MenuComponent implements OnInit {
                   icon:'view_list'
                }
             ]
+         },
+         {
+            data:'',
+            label:'Modulo de catalogos y parametros',
+            link:'',
+            icon:'perm_media',
+            items:[
+               {
+                  data:'Catalogos',
+                  label:'Catalogos',
+                  link:'/catalogo-parametros/catalogo',
+                  icon:'storage'
+               },
+               {
+                  data:'Parametros',
+                  label:'Parametros',
+                  link:'/catalogo-parametros/parametros',
+                  icon:'storage'
+               }
+            ]
          }
       ]
    }

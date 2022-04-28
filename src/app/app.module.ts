@@ -11,11 +11,14 @@ import { AdministracionModule } from './modulos/administracion/administracion.mo
 
 import { MultilevelMenuService } from 'ng-material-multilevel-menu';
 import { MaterialsModule } from './core/configuracion/materials.module';
+import { CatalogosParametrosModule } from './modulos/catalogos-parametros/catalogos-parametros.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+   
+   
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { MaterialsModule } from './core/configuracion/materials.module';
     BrowserAnimationsModule,
     AdministracionModule,
     SharedModule,
-    MaterialsModule
+    MaterialsModule,
+    CatalogosParametrosModule,
   ],
   providers: [MultilevelMenuService],
   bootstrap: [AppComponent]
